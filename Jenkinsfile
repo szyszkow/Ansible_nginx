@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Search for 4xx and 5xx in Nginx logs') {
             steps {
-                sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible -i hosts all -m shell -a "grep -P \'\s(4\d\d|5\d\d)\s\' /var/log/nginx/*"'
+                sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible -i hosts all -m shell -a "grep -P \'\\s(4\\d\\d|5\\d\\d)\\s\' /var/log/nginx/*"'
             }
         }
     }
