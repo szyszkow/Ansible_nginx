@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Install nginx') {
             steps {
-                sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible -i hosts all -m ping -u root'
+                sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts nginx_install.yml'
             }
         }
     }
