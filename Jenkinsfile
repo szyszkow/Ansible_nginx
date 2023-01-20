@@ -5,9 +5,6 @@ pipeline {
             args '-u root'
         }
     }
-    parameters {
-        booleanParam(name: 'NGINX_INSTALL', defaultValue: true, description: 'Install or not install Nginx')
-    }
     stages {
         stage('Add SSH key') {
             steps {
