@@ -21,6 +21,7 @@ pipeline {
                 sh 'apk add ansible'
                 sh 'ansible --version'
                 sh 'env'
+                sh 'env'
             }
         }
         stage('Install Nginx') {
