@@ -6,7 +6,7 @@ pipeline {
         }
     }
     parameters {
-        booleanParam(name: 'NGINX_INSTALL', defaultValue: false, description: 'Install or not install Nginx')
+        booleanParam(name: 'NGINX_INSTALL', defaultValue: true, description: 'Install or not install Nginx')
     }
     stages {
         stage('Add SSH key') {
@@ -20,8 +20,6 @@ pipeline {
             steps {
                 sh 'apk add ansible'
                 sh 'ansible --version'
-                sh 'env'
-                sh 'env'
             }
         }
         stage('Install Nginx') {
