@@ -20,6 +20,11 @@ pipeline {
             }
         }
         stage('Install Nginx') {
+            when {
+                expression {
+                    return env.NGINX_INSTALL == 1;
+                }
+            }
             steps {
                 sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts nginx_install.yml'
             }
