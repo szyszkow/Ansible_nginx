@@ -5,6 +5,9 @@ pipeline {
             args '-u root'
         }
     }
+    environment {
+        NGINX_INSTALL = 1
+    }
     stages {
         stage('Add SSH key') {
             steps {
