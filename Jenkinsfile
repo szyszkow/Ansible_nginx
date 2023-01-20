@@ -25,7 +25,7 @@ pipeline {
         stage('Install Nginx') {
             when {
                 expression {
-                    return env.NGINX_INSTALL;
+                    return env.NGINX_INSTALL == 'true';
                 }
             }
             steps {
