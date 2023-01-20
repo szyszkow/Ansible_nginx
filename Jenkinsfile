@@ -9,9 +9,7 @@ pipeline {
         stage('Add SSH key') {
             steps {
                 withCredentials([string(credentialsId: 'ansible-ssh-key', variable: 'SSH_KEY')]) {
-                    sh 'set +x'
-                    sh 'mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo $SSH_KEY | base64 -d > ~/.ssh/id_rsa && chmod 0400 ~/.ssh/id_rsa'
-                    sh 'set -x'
+                    sh 'set +x && mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo $SSH_KEY | base64 -d > ~/.ssh/id_rsa && chmod 0400 ~/.ssh/id_rsa'
                 }
             }
         }
