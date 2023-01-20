@@ -6,7 +6,7 @@ pipeline {
         }
     }
     parameters {
-        booleanParam(name: 'NGINX_INSTALL', defaultValue: true, description: 'Install or not install Nginx')
+        booleanParam(name: 'NGINX_INSTALL', defaultValue: 1, description: 'Install or not install Nginx')
     }
     stages {
         stage('Add SSH key') {
@@ -25,7 +25,7 @@ pipeline {
         stage('Install Nginx') {
             when {
                 expression {
-                    return env.NGINX_INSTALL == true;
+                    return env.NGINX_INSTALL;
                 }
             }
             steps {
